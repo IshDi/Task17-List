@@ -18,9 +18,7 @@ public class Main {
                     System.out.println();
                 } else {
                     System.out.println("Список покупок:");
-                    for (int i = 0; i < basket.size(); i++) {
-                        System.out.println((i + 1) + ". " + basket.get(i));
-                    }
+                    printBasket(basket);
                 }
                 System.out.println("Спасибо за покупку!");
                 break;
@@ -41,17 +39,13 @@ public class Main {
                         System.out.println();
                         continue;
                     } else {
-                        for (int i = 0; i < basket.size(); i++) {
-                            System.out.println((i + 1) + ". " + basket.get(i));
-                        }
+                        printBasket(basket);
                         System.out.println();
                     }
                 }
                 case 2 -> {
                     System.out.println("Список покупок:");
-                    for (int i = 0; i < basket.size(); i++) {
-                        System.out.println((i + 1) + ". " + basket.get(i));
-                    }
+                    printBasket(basket);
                     System.out.println("Какую хотите удалить? Введите номер или название");
                     System.out.println();
                     String productName = scanner.nextLine();
@@ -67,12 +61,10 @@ public class Main {
 
                     System.out.println();
                     System.out.println("Покупка \"" + textOption + "\" удалена, список покупок:");
-                    if (basket.size() == 0) {
+                    if (basket.isEmpty()) {
                         System.out.println("Покупок нет!");
                     }
-                    for (int i = 0; i < basket.size(); i++) {
-                        System.out.println((i + 1) + ". " + basket.get(i));
-                    }
+                    printBasket(basket);
                 }
                 case 3 -> {
                     System.out.println("Введите текст для поиска:");
@@ -85,6 +77,12 @@ public class Main {
                     }
                 }
             }
+        }
+    }
+
+    public static void printBasket(List<String> basket) {
+        for (int i = 0; i < basket.size(); i++) {
+            System.out.println((i + 1) + ". " + basket.get(i));
         }
     }
 }
